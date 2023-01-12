@@ -1,0 +1,11 @@
+library(WeightSVM) # pacote com rotinas para o SVM ponderado
+library(neuralnet)
+suppressPackageStartupMessages(library(quantreg))
+library(data.table)
+library(lubridate)
+library(jsonlite)
+library(fpp3)
+library(mgcv)
+library(rlist)
+library(parallel)
+library(ggplot2)

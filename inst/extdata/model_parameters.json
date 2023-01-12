@@ -1,0 +1,682 @@
+{
+	"Radial.TmpMaxima" : {
+		"nomModelo" : "Radial.TempMaxima",
+		"janelaDados" : [ 45, 45 ],
+		"janelaDadosFer" : [
+			{
+				"tipoDiaEsp" : [ 9, 10, 11 ],
+				"janelaDados" : [ 200, 200 ],
+				"lagsdiasemana" : [ 2, 7 ]
+			},
+			{
+				"tipoDiaEsp" : [ 1, 2, 3, 4, 5, 6, 7, 8 ],
+				"janelaDados" : [ 40, 40 ],
+				"lagsdiasemana" : [ 1, 7 ]
+			}
+		],
+		"engine" : "SVM",
+		"ranges" : {
+			"epsilon" : [ 0.001, 0.01, 0.1 ],
+			"cost" : [ 1, 10 ]
+		},
+		"alfa" : 0,
+		"tipoEntradaDM" : "ML_LOCAL",
+		"tipoEntradaDMFer" : "ML_DEFAULT",
+		"tipoEntradaPerfilFer" : "ML_PERFILFER",
+		"tipoEntradaPerfil" : "DEFAULT",
+		"kernel" : "radial",
+		"funcDadosDemandaMedia" : "entradaDemandaMedia",
+		"funcModeloDemandaMedia" : "SVM_DemandaMedia",
+		"funcDadosPerfil" : "entradaPerfil",
+		"funcModeloPerfil" : "SVMhorario",
+		"exogenaOper" : "MAX",
+		"normalizacao" : {
+			"dm" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			},
+			"perfil" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "mean",
+					"const" : 1
+				},
+				"cargadm" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			}
+		},
+		"lagsDemandaMedia" : [ 1, 2, 7 ],
+		"lagsPerfil" : [ 1, 168, 336 ],
+		"colunaRemover" : [ "Data", "Prev" ],
+		"colunaRemoverPerfil" : [ "Data", "Prev", "DataHora" ],
+		"funcProcessamento" : "processaModelosDMPerfil"
+	},
+	"Radial.TmpMedia" : {
+		"nomModelo" : "Radial.TmpMedia",
+		"janelaDados" : [ 45, 45 ],
+		"janelaDadosFer" : [
+			{
+				"tipoDiaEsp" : [ 9, 10, 11 ],
+				"janelaDados" : [ 200, 200 ],
+				"lagsdiasemana" : [ 2, 7 ]
+			},
+			{
+				"tipoDiaEsp" : [ 1, 2, 3, 4, 5, 6, 7, 8 ],
+				"janelaDados" : [ 40, 40 ],
+				"lagsdiasemana" : [ 1, 7 ]
+			}
+		],
+		"engine" : "SVM",
+		"ranges" : {
+			"epsilon" : [ 0.001, 0.01, 0.1 ],
+			"cost" : [ 1, 10 ]
+		},
+		"alfa" : 0,
+		"tipoEntradaDM" : "ML_LOCAL",
+		"tipoEntradaDMFer" : "ML_DEFAULT",
+		"tipoEntradaPerfilFer" : "ML_PERFILFER",
+		"tipoEntradaPerfil" : "DEFAULT",
+		"kernel" : "radial",
+		"funcDadosDemandaMedia" : "entradaDemandaMedia",
+		"funcModeloDemandaMedia" : "SVM_DemandaMedia",
+		"funcDadosPerfil" : "entradaPerfil",
+		"funcModeloPerfil" : "SVMhorario",
+		"exogenaOper" : "MED",
+		"normalizacao" : {
+			"dm" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			},
+			"perfil" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "mean",
+					"const" : 1
+				},
+				"cargadm" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			}
+		},
+		"lagsDemandaMedia" : [ 1, 2, 7 ],
+		"lagsPerfil" : [ 1, 168, 336 ],
+		"colunaRemover" : [ "Data", "Prev" ],
+		"colunaRemoverPerfil" : [ "Data", "Prev", "DataHora" ],
+		"funcProcessamento" : "processaModelosDMPerfil"
+	},
+	"Radial.TmpMaxMin" : {
+		"nomModelo" : "Radial.TempMaxMin",
+		"janelaDados" : [ 45, 45 ],
+		"janelaDadosFer" : [
+			{
+				"tipoDiaEsp" : [ 9, 10, 11 ],
+				"janelaDados" : [ 200, 200 ],
+				"lagsdiasemana" : [ 2, 7 ]
+			},
+			{
+				"tipoDiaEsp" : [ 1, 2, 3, 4, 5, 6, 7, 8 ],
+				"janelaDados" : [ 40, 40 ],
+				"lagsdiasemana" : [ 1, 7 ]
+			}
+		],
+		"engine" : "SVM",
+		"ranges" : {
+			"epsilon" : [ 0.001, 0.01, 0.1 ],
+			"cost" : [ 1, 10 ]
+		},
+		"alfa" : 0,
+		"tipoEntradaDM" : "ML_LOCAL",
+		"tipoEntradaDMFer" : "ML_DEFAULT",
+		"tipoEntradaPerfilFer" : "ML_PERFILFER",
+		"tipoEntradaPerfil" : "DEFAULT",
+		"kernel" : "radial",
+		"funcDadosDemandaMedia" : "entradaDemandaMedia",
+		"funcModeloDemandaMedia" : "SVM_DemandaMedia",
+		"funcDadosPerfil" : "entradaPerfil",
+		"funcModeloPerfil" : "SVMhorario",
+		"exogenaOper" : "MXMN",
+		"normalizacao" : {
+			"dm" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			},
+			"perfil" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "mean",
+					"const" : 1
+				},
+				"cargadm" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			}
+		},
+		"lagsDemandaMedia" : [ 1, 2, 7 ],
+		"lagsPerfil" : [ 1, 168, 336 ],
+		"colunaRemover" : [ "Data", "Prev" ],
+		"colunaRemoverPerfil" : [ "Data", "Prev", "DataHora" ],
+		"funcProcessamento" : "processaModelosDMPerfil"
+	},
+	"Radial.Univariado" : {
+		"nomModelo" : "Radial.Univariado",
+		"janelaDados" : [ 45, 45 ],
+		"janelaDadosFer" : [
+			{
+				"tipoDiaEsp" : [ 9, 10, 11 ],
+				"janelaDados" : [ 200, 200 ],
+				"lagsdiasemana" : [ 2, 7 ]
+			},
+			{
+				"tipoDiaEsp" : [ 1, 2, 3, 4, 5, 6, 7, 8 ],
+				"janelaDados" : [ 40, 40 ],
+				"lagsdiasemana" : [ 1, 7 ]
+			}
+		],
+		"engine" : "SVM",
+		"ranges" : {
+			"epsilon" : [ 0.001, 0.01, 0.1 ],
+			"cost" : [ 1, 10 ]
+		},
+		"alfa" : 0,
+		"tipoEntradaDM" : "ML_LOCAL",
+		"tipoEntradaDMFer" : "ML_DEFAULT",
+		"tipoEntradaPerfilFer" : "ML_PERFILFER",
+		"tipoEntradaPerfil" : "DEFAULT",
+		"kernel" : "radial",
+		"funcDadosDemandaMedia" : "entradaDemandaMedia",
+		"funcModeloDemandaMedia" : "SVM_DemandaMedia",
+		"funcDadosPerfil" : "entradaPerfil",
+		"funcModeloPerfil" : "SVMhorario",
+		"exogenaOper" : "SEM",
+		"normalizacao" : {
+			"dm" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			},
+			"perfil" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "mean",
+					"const" : 1
+				},
+				"cargadm" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			}
+		},
+		"lagsDemandaMedia" : [ 1, 2, 7 ],
+		"lagsPerfil" : [ 1, 168, 336 ],
+		"colunaRemover" : [ "Data", "Prev" ],
+		"colunaRemoverPerfil" : [ "Data", "Prev", "DataHora" ],
+		"funcProcessamento" : "processaModelosDMPerfil"
+	},
+	"Linear.TmpMaxima" : {
+		"nomModelo" : "Linear.TmpMaxima",
+		"janelaDados" : [ 45, 45 ],
+		"janelaDadosFer" : [
+			{
+				"tipoDiaEsp" : [ 9, 10, 11 ],
+				"janelaDados" : [ 200, 200 ],
+				"lagsdiasemana" : [ 2, 7 ]
+			},
+			{
+				"tipoDiaEsp" : [ 1, 2, 3, 4, 5, 6, 7, 8 ],
+				"janelaDados" : [ 40, 40 ],
+				"lagsdiasemana" : [ 1, 7 ]
+			}
+		],
+		"engine" : "SVM",
+		"ranges" : {
+			"epsilon" : [ 0.001, 0.01, 0.1 ],
+			"cost" : [ 1, 10 ]
+		},
+		"alfa" : 0,
+		"tipoEntradaDM" : "ML_LOCAL",
+		"tipoEntradaDMFer" : "ML_DEFAULT",
+		"tipoEntradaPerfilFer" : "ML_PERFILFER",
+		"tipoEntradaPerfil" : "DEFAULT",
+		"kernel" : "linear",
+		"funcDadosDemandaMedia" : "entradaDemandaMedia",
+		"funcModeloDemandaMedia" : "SVM_DemandaMedia",
+		"funcDadosPerfil" : "entradaPerfil",
+		"funcModeloPerfil" : "SVMhorario",
+		"exogenaOper" : "MAX",
+		"normalizacao" : {
+			"dm" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			},
+			"perfil" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "mean",
+					"const" : 1
+				},
+				"cargadm" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			}
+		},
+		"lagsDemandaMedia" : [ 1, 2, 7 ],
+		"lagsPerfil" : [ 1, 168, 336 ],
+		"colunaRemover" : [ "Data", "Prev" ],
+		"colunaRemoverPerfil" : [ "Data", "Prev", "DataHora" ],
+		"funcProcessamento" : "processaModelosDMPerfil"
+	},
+	"Linear.TmpMedia" : {
+		"nomModelo" : "Linear.TmpMedia",
+		"janelaDados" : [ 45, 45 ],
+		"janelaDadosFer" : [
+			{
+				"tipoDiaEsp" : [ 9, 10, 11 ],
+				"janelaDados" : [ 200, 200 ],
+				"lagsdiasemana" : [ 2, 7 ]
+			},
+			{
+				"tipoDiaEsp" : [ 1, 2, 3, 4, 5, 6, 7, 8 ],
+				"janelaDados" : [ 40, 40 ],
+				"lagsdiasemana" : [ 1, 7 ]
+			}
+		],
+		"engine" : "SVM",
+		"ranges" : {
+			"epsilon" : [ 0.001, 0.01, 0.1 ],
+			"cost" : [ 1, 10 ]
+		},
+		"alfa" : 0,
+		"tipoEntradaDM" : "ML_LOCAL",
+		"tipoEntradaDMFer" : "ML_DEFAULT",
+		"tipoEntradaPerfilFer" : "ML_PERFILFER",
+		"tipoEntradaPerfil" : "DEFAULT",
+		"kernel" : "linear",
+		"funcDadosDemandaMedia" : "entradaDemandaMedia",
+		"funcModeloDemandaMedia" : "SVM_DemandaMedia",
+		"funcDadosPerfil" : "entradaPerfil",
+		"funcModeloPerfil" : "SVMhorario",
+		"exogenaOper" : "MED",
+		"normalizacao" : {
+			"dm" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			},
+			"perfil" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "mean",
+					"const" : 1
+				},
+				"cargadm" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			}
+		},
+		"lagsDemandaMedia" : [ 1, 2, 7 ],
+		"lagsPerfil" : [ 1, 168, 336 ],
+		"colunaRemover" : [ "Data", "Prev" ],
+		"colunaRemoverPerfil" : [ "Data", "Prev", "DataHora" ],
+		"funcProcessamento" : "processaModelosDMPerfil"
+	},
+	"Linear.TmpMaxMin" : {
+		"nomModelo" : "Linear.TmpMaxMin",
+		"janelaDados" : [ 45, 45 ],
+		"janelaDadosFer" : [
+			{
+				"tipoDiaEsp" : [ 9, 10, 11 ],
+				"janelaDados" : [ 200, 200 ],
+				"lagsdiasemana" : [ 2, 7 ]
+			},
+			{
+				"tipoDiaEsp" : [ 1, 2, 3, 4, 5, 6, 7, 8 ],
+				"janelaDados" : [ 40, 40 ],
+				"lagsdiasemana" : [ 1, 7 ]
+			}
+		],
+		"engine" : "SVM",
+		"ranges" : {
+			"epsilon" : [ 0.001, 0.01, 0.1 ],
+			"cost" : [ 1, 10 ]
+		},
+		"alfa" : 0,
+		"tipoEntradaDM" : "ML_LOCAL",
+		"tipoEntradaDMFer" : "ML_DEFAULT",
+		"tipoEntradaPerfilFer" : "ML_PERFILFER",
+		"tipoEntradaPerfil" : "DEFAULT",
+		"kernel" : "linear",
+		"funcDadosDemandaMedia" : "entradaDemandaMedia",
+		"funcModeloDemandaMedia" : "SVM_DemandaMedia",
+		"funcDadosPerfil" : "entradaPerfil",
+		"funcModeloPerfil" : "SVMhorario",
+		"exogenaOper" : "MXMN",
+		"normalizacao" : {
+			"dm" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			},
+			"perfil" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "mean",
+					"const" : 1
+				},
+				"cargadm" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			}
+		},
+		"lagsDemandaMedia" : [ 1, 2, 7 ],
+		"lagsPerfil" : [ 1, 168, 336 ],
+		"colunaRemover" : [ "Data", "Prev" ],
+		"colunaRemoverPerfil" : [ "Data", "Prev", "DataHora" ],
+		"funcProcessamento" : "processaModelosDMPerfil"
+	},
+	"Linear.Univariado" : {
+		"nomModelo" : "Linear.Univariado",
+		"janelaDados" : [ 45, 45 ],
+		"janelaDadosFer" : [
+			{
+				"tipoDiaEsp" : [ 9, 10, 11 ],
+				"janelaDados" : [ 200, 200 ],
+				"lagsdiasemana" : [ 2, 7 ]
+			},
+			{
+				"tipoDiaEsp" : [ 1, 2, 3, 4, 5, 6, 7, 8 ],
+				"janelaDados" : [ 40, 40 ],
+				"lagsdiasemana" : [ 1, 7 ]
+			}
+		],
+		"engine" : "SVM",
+		"ranges" : {
+			"epsilon" : [ 0.001, 0.01, 0.1 ],
+			"cost" : [ 1, 10 ]
+		},
+		"alfa" : 0,
+		"tipoEntradaDM" : "ML_LOCAL",
+		"tipoEntradaDMFer" : "ML_DEFAULT",
+		"tipoEntradaPerfilFer" : "ML_PERFILFER",
+		"tipoEntradaPerfil" : "DEFAULT",
+		"kernel" : "linear",
+		"funcDadosDemandaMedia" : "entradaDemandaMedia",
+		"funcModeloDemandaMedia" : "SVM_DemandaMedia",
+		"funcDadosPerfil" : "entradaPerfil",
+		"funcModeloPerfil" : "SVMhorario",
+		"exogenaOper" : "SEM",
+		"normalizacao" : {
+			"dm" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			},
+			"perfil" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "mean",
+					"const" : 1
+				},
+				"cargadm" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			}
+		},
+		"lagsDemandaMedia" : [ 1, 2, 7 ],
+		"lagsPerfil" : [ 1, 168, 336 ],
+		"colunaRemover" : [ "Data", "Prev" ],
+		"colunaRemoverPerfil" : [ "Data", "Prev", "DataHora" ],
+		"funcProcessamento" : "processaModelosDMPerfil"
+	},
+	"RegDin.Radial.TmpMax" : {
+		"nomModelo" : "RegDin.Radial.TmpMax",
+		"janelaDados" : [ 45, 45 ],
+		"janelaDadosFer" : [
+			{
+				"tipoDiaEsp" : [ 9, 10, 11 ],
+				"janelaDados" : [ 200, 200 ],
+				"lagsdiasemana" : [ 2, 7 ]
+			},
+			{
+				"tipoDiaEsp" : [ 1, 2, 3, 4, 5, 6, 7, 8 ],
+				"janelaDados" : [ 40, 40 ],
+				"lagsdiasemana" : [ 1, 7 ]
+			}
+		],
+		"engine" : "SVM",
+		"ranges" : {
+			"epsilon" : [ 0.001, 0.01, 0.1 ],
+			"cost" : [ 1, 10 ]
+		},
+		"alfa" : 0,
+		"tipoEntradaDM" : "TS_FACTOR",
+		"tipoEntradaPerfilFer" : "ML_PERFILFER",
+		"tipoEntradaPerfil" : "DEFAULT",
+		"kernel" : "radial",
+		"funcDadosDemandaMedia" : "entradaDemandaMedia",
+		"funcModeloDemandaMedia" : "RD_DemandaMediaHyndman",
+		"funcDadosPerfil" : "entradaPerfil",
+		"funcModeloPerfil" : "SVMhorario",
+		"exogenaOper" : "MAX",
+		"normalizacao" : {
+			"dm" : {
+				"carga" : {
+					"flag" : false,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : false,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			},
+			"perfil" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "mean",
+					"const" : 1
+				},
+				"cargadm" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			}
+		},
+		"lagsDemandaMedia" : [ 1, 2, 7 ],
+		"lagsPerfil" : [ 1, 168, 336 ],
+		"colunaRemover" : [ "Data", "Prev", "HV" ],
+		"colunaRemoverPerfil" : [ "Data", "Prev", "DataHora" ],
+		"funcProcessamento" : "processaModelosDMTSPerfil",
+		"lagsExogenaDia" : [ 1, 2, 7 ]
+	},
+	"RegDin.Radial.TmpMed" : {
+		"nomModelo" : "RegDin.Radial.TmpMed",
+		"janelaDados" : [ 45, 45 ],
+		"janelaDadosFer" : [
+			{
+				"tipoDiaEsp" : [ 9, 10, 11 ],
+				"janelaDados" : [ 200, 200 ],
+				"lagsdiasemana" : [ 2, 7 ]
+			},
+			{
+				"tipoDiaEsp" : [ 1, 2, 3, 4, 5, 6, 7, 8 ],
+				"janelaDados" : [ 40, 40 ],
+				"lagsdiasemana" : [ 1, 7 ]
+			}
+		],
+		"engine" : "SVM",
+		"ranges" : {
+			"epsilon" : [ 0.001, 0.01, 0.1 ],
+			"cost" : [ 1, 10 ]
+		},
+		"alfa" : 0,
+		"tipoEntradaDM" : "TS_FACTOR",
+		"tipoEntradaPerfilFer" : "ML_PERFILFER",
+		"tipoEntradaPerfil" : "DEFAULT",
+		"kernel" : "radial",
+		"funcDadosDemandaMedia" : "entradaDemandaMedia",
+		"funcModeloDemandaMedia" : "RD_DemandaMediaHyndman",
+		"funcDadosPerfil" : "entradaPerfil",
+		"funcModeloPerfil" : "SVMhorario",
+		"exogenaOper" : "MED",
+		"normalizacao" : {
+			"dm" : {
+				"carga" : {
+					"flag" : false,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : false,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			},
+			"perfil" : {
+				"carga" : {
+					"flag" : true,
+					"oper" : "mean",
+					"const" : 1
+				},
+				"cargadm" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				},
+				"exogena" : {
+					"flag" : true,
+					"oper" : "max",
+					"const" : 1.25
+				}
+			}
+		},
+		"lagsDemandaMedia" : [ 1, 2, 7 ],
+		"lagsPerfil" : [ 1, 168, 336 ],
+		"colunaRemover" : [ "Data", "Prev", "HV" ],
+		"colunaRemoverPerfil" : [ "Data", "Prev", "DataHora" ],
+		"funcProcessamento" : "processaModelosDMTSPerfil",
+		"lagsExogenaDia" : [ 1, 2, 7 ]
+	}
+}

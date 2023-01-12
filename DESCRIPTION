@@ -1,0 +1,26 @@
+Package: prevcargadessem
+Type: Package
+Title: PrevCargaDESSEM
+Version: 2.0.1.15
+Authors@R: c(person("CEPEL", "DEA", email = "prevmercado@cepel.br", role = c("aut", "cre")),person("ONS","PEC", email = "FTPrevCargaDESSEM@ons.org.br",role = c("aut","ctr")))
+Description: Modelo de previsao de carga para atendimento ao modelo DESSEM.
+Depends: R (>= 4.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Maintainer: CEPEL DEA <prevmercado@cepel.br>, ONS PEC <FTPrevCargaDESSEM@ons.org.br>
+Imports:
+   WeightSVM,
+   neuralnet,
+   data.table,
+   lubridate,
+   jsonlite,
+   rlist,
+   parallel,
+   fable,
+   fabletools,
+   feasts,
+   urca
+Suggests:
+    ggplot2
