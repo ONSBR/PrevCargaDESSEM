@@ -22,8 +22,12 @@ previsordessem <- function(deck,dataPrev,horizonte = c("SEMOPER","10DIAS"),model
                            saida = c("CSV","DESSEM","PLOT"), dirSaida = ".",maxTreads = NULL){
    ## Se length modelos < length(obterModelos()) somente roda modelos else combina
    ## Verifica se previsao de temperatura condiz com horizonte
-   cabecalho("2.0.0")
+   cabecalho("2.0.16")
    deck <- TransformaDeck(deckEntrada(deck),dataPrev,horizonte)
+   if(!is.null(deck$COMBINA)) {
+     modelosComb <- unique(deck$COMBINA$Modelo)
+     modelosComb <- modelosComb[which(modelosComb != "(Intercept)")]
+   }
    if(!endsWith(dirSaida,'/')) dirSaida <- paste0(dirSaida,'/')
    arqLog <- paste0(dirSaida,format(Sys.time(),'%Y%m%d%H%M%S'),"_",dataPrev,"_logprevcargadessem.txt")
    dadosMdl <- execModelos(deck,maxTreads,modelos,arqLog,"MULTICL")
@@ -31,7 +35,7 @@ previsordessem <- function(deck,dataPrev,horizonte = c("SEMOPER","10DIAS"),model
    dadosMdlSH <- do.call("rbind",lapply(modelos,desagregaModeloSH,dadosMdl))
    message("CONCLUIDA DESAGREGACAO SEMI-HORARIA")
 
-   if(!is.null(deck$COMBINA) & !length(modelos) < length(obterModelos())){
+   if(!is.null(deck$COMBINA) & !length(modelos) < length(modelosComb)){
       dadosMdlSH <- aplicaPesos(dadosMdlSH,deck$COMBINA)
       message("CONCLUIDA COMBINACAO DE MODELOS")
    }

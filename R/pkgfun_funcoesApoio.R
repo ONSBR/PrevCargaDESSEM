@@ -431,7 +431,7 @@ writeOutDP <- function(dadosMdlSH,dtPat,dataPrev,dirSaida){
                               Dia = day(DataHora),
                               HoraIni = hour(DataHora),
                               SemiHora = ifelse(minute(DataHora) == 30,1,0),Carga = round(Carga))]
-   dadosMdlDPT <- dadosMdlD[date(DataHora) > as.Date(dataPrev) + ndiasSH - 1,.(Carga = mean(Carga)),
+   dadosMdlDPT <- dadosMdlD[date(DataHora) > as.Date(dataPrev) + 1,.(Carga = mean(Carga)),
                             .(Data = date(DataHora), HoraIni,Patamar,Intervalo)]
 
    dadosMdlDPT <- dadosMdlDPT[,.(Data,
@@ -439,6 +439,7 @@ writeOutDP <- function(dadosMdlSH,dtPat,dataPrev,dirSaida){
                                  HoraIni = as.numeric(substr(HoraIni,1,2)),
                                  SemiHora = ifelse(substr(HoraIni,4,5) == "30",1,0),Carga = round(Carga))]
    dadosMdlDPT <- rbind(dadosMdlDSH[order(Data,HoraIni,SemiHora)],dadosMdlDPT[order(Data,HoraIni,SemiHora)])
+   dadosMdlDPT[,Data := NULL]
    fwrite(dadosMdlDPT,paste0(dirSaida,'SaidaPrevCargaDESSEM_BL_',dataPrev,'.txt'),sep = '\t')
 }
 
